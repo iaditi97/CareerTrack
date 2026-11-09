@@ -232,12 +232,15 @@ const Login = () => {
                 {/* Sign Up Link */}
                 <div className="text-center">
                     <p className="text-gray-600">
-                       Don't have an account?{' '}
-                       <a href="/signup" className="text-blue-600 hover:text-blue-700 font-medium">
+                       Don&apos;t have an account?{' '}
+                       <span 
+                           onClick={() => navigate('/signup')} 
+                           className="text-blue-600 hover:text-blue-700 font-medium cursor-pointer"
+                       >
                             Create one here
-                       </a>
+                       </span>
                     </p>
-                </div> 
+                </div>
             </form>
         </motion.div>
     </div>
