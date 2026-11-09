@@ -39,7 +39,7 @@ export default function JobDetails() {
 
   const fetchJobMetadata = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/jobs/${jobId}`);
+      const res = await axios.get(`https://careertrack-isqj.onrender.com/api/jobs/${jobId}`);
       setJob(res.data);
     } catch (err) {
       toast.error('Failed to locate target placement details.');
@@ -100,7 +100,7 @@ export default function JobDetails() {
     multipartForm.append('resume', resumeFile);
 
     try {
-      const res = await axios.post('http://localhost:5000/api/applications/submit', multipartForm, {
+      const res = await axios.post('https://careertrack-isqj.onrender.com/api/applications/submit', multipartForm, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       

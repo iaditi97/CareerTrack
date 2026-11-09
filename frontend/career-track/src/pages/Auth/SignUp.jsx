@@ -116,7 +116,7 @@ const SignUp = () => {
 
       try {
         // 📡 Connects directly to the backend Auth registration endpoint
-        const response = await axios.post('http://localhost:5000/api/auth/register', {
+        const response = await axios.post('https://careertrack-isqj.onrender.com/api/auth/register', {
           email: formData.email,
           password: formData.password
         });

@@ -76,7 +76,7 @@ const Login = () => {
 
         try {
             // Live MERN Login API connectivity implementation
-            const response = await axios.post('http://localhost:5000/api/auth/login', {
+            const response = await axios.post('https://careertrack-isqj.onrender.com/api/auth/login', {
                 email: formData.email,
                 password: formData.password
             });

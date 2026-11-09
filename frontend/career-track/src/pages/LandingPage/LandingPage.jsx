@@ -21,7 +21,7 @@ const LandingPage = () => {
   const fetchLiveJobs = async () => {
     setLoading(true);
     try {
-      const res = await axios.get('http://localhost:5000/api/jobs', {
+      const res = await axios.get('https://careertrack-isqj.onrender.com/api/jobs', {
         params: { search, type }
       });
       setJobs(res.data.jobs || []);

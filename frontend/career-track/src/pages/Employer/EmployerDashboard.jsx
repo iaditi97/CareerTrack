@@ -34,7 +34,7 @@ export default function EmployerDashboard() {
 
   const loadActiveJobs = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/jobs', { params: { limit: 100 } });
+      const res = await axios.get('https://careertrack-isqj.onrender.com/api/jobs', { params: { limit: 100 } });
       setJobs(res.data.jobs || []);
     } catch (err) {
       console.error('Error fetching jobs:', err);
@@ -51,7 +51,7 @@ export default function EmployerDashboard() {
     setLoadingApps(true);
     try {
       const token = localStorage.getItem('adminToken');
-      const res = await axios.get(`http://localhost:5000/api/applications/job/${jobId}`, {
+      const res = await axios.get(`https://careertrack-isqj.onrender.com/api/applications/job/${jobId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setApplications(res.data.records || []);
@@ -65,7 +65,7 @@ export default function EmployerDashboard() {
   const handleStatusChange = async (appId, newStatus, currentNotes) => {
     try {
       const token = localStorage.getItem('adminToken');
-      await axios.put(`http://localhost:5000/api/applications/${appId}/status`, 
+      await axios.put(`https://careertrack-isqj.onrender.com/api/applications/${appId}/status`, 
         { status: newStatus, notes: currentNotes },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -77,7 +77,7 @@ export default function EmployerDashboard() {
 
   const handleExportCSV = () => {
     if (!selectedJobId) return;
-    window.open(`http://localhost:5000/api/applications/job/${selectedJobId}/export`, '_blank');
+    window.open(`https://careertrack-isqj.onrender.com/api/applications/job/${selectedJobId}/export`, '_blank');
   };
 
   const handleLogout = () => {
@@ -209,7 +209,7 @@ export default function EmployerDashboard() {
                         <p className="text-slate-500 text-xs mt-0.5">{app.email}</p>
                         <p className="text-slate-400 text-xs">{app.phone}</p>
                         <a 
-                          href={`http://localhost:5000/${app.resumePath}`} 
+                          href={`https://careertrack-isqj.onrender.com/${app.resumePath}`} 
                           target="_blank" 
                           rel="noreferrer" 
                           className="inline-flex items-center text-xs font-bold text-blue-600 hover:text-blue-700 mt-2 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100 transition-all"
